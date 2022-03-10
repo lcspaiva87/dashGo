@@ -9,7 +9,7 @@ export function SlidebarNav() {
             <Stack spacing="12" align="flex-start">
                 <NavSection title="Geral">
                     <NavLink children="Dashboard" icon={RiDashboardLine} href="/dashboard" />
-                    <NavLink children="Usuários" icon={RiContactsLine}  href="users"/>
+                    <NavLink children="Usuários" icon={RiContactsLine}  href="/users"/>
                 </NavSection>
 
                 <NavSection title="Automação">
