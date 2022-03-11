@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Input } from "../../components/Form/Input";
 import { Header } from "../../components/Header";
 import { Sider } from "../../components/Siderbar";
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -31,7 +31,7 @@ export default function CreateUser() {
         resolver: yupResolver(CreateUseerFormSchema)
     })
     const errors = formState.errors
-    const handleCreateUser: SubmitHandler<CreateUserFormData> = async (values) => {
+    const handleCreateUser: SubmitHandler<FieldValues> = async (values) => {
         await new Promise(resolve => setTimeout(resolve, 2000))
         console.log(values)
     }
