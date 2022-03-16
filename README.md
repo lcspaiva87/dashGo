@@ -6,6 +6,10 @@
   <img alt="GitHub" src="https://img.shields.io/badge/DashGo-License-%23B83280">
 </p>
 ## Previa Projeto
+<p align="center">
+  <a href="https://www.linkedin.com/in/lucas-antonio-paiva/"><img alt="Made by" src=https://github.com/lcspaiva87/dashGo/blob/main/src/public/Mobile.png?raw=true"></a>
+  <img alt="GitHub" src="https://github.com/lcspaiva87/dashGo/blob/main/src/public/Desktop.png?raw=true">
+</p>
 ## 🛠️ Tecnologias/Ferramentas ultilizadas
 * [React](https://pt-br.reactjs.org/E)
 * [Next.js](https://nextjs.org/)
