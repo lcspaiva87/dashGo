@@ -18,7 +18,7 @@ export function Profile({ showProfileData = true }: ProfileProps) {
                     </Box>
                 )
             }
-            <Avatar size='md' name="lucas antonio paiva da slva" />
+            <Avatar size='md' name="lucas antonio paiva da slva" src="https://github.com/lcspaiva87.png" />
         </Flex>
     )
 }
