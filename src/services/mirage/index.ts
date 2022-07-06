@@ -4,7 +4,7 @@ import faker from 'faker'
 type User = {
     name: string,
     email: string,
-    create_at: string
+    created_at: string
 }
 
 export function makeServer() {
@@ -26,12 +26,24 @@ export function makeServer() {
             })
         },
         seeds(server) {
-            server.createList('user', 100)
+            server.createList('user', 200)
         },
         routes() {
             this.namespace = 'api';
             this.timing = 750;
-            this.get('/users');
+
+            this.get('/users', function (schema, request) {
+                const { page = 1, per_page = 10 } = request.queryParams
+
+                const total = schema.all('user').length
+
+                const pageStart = (Number(page) -1) * Number(per_page)
+                const pageEnd = pageStart + Number(per_page)
+
+                const user =this.serialize( schema.all('user')).users.slice(pageStart,pageEnd)
+
+                return user
+            });
             this.post('/users');
             this.namespace = '';
             this.passthrough()
