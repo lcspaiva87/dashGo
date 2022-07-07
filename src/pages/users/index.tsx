@@ -1,16 +1,16 @@
 import { Box, Button, Center, Checkbox, Flex, Heading, Icon, Spinner, Table, Tbody, Td, Text, Th, Thead, Tr, useBreakpointValue } from "@chakra-ui/react";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useState } from "react";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
 import { Sider } from "../../components/Siderbar";
 
-import { userUsers } from "../../services/hoocks/userUsers";
+import { useUsers} from "../../services/hoocks/userUsers";
 
 export default function UserList() {
-
-    const { data, isLoading, isFetching,error } = userUsers()
+    const [page,setPage]= useState(1)
+    const { data, isLoading, isFetching,error } = useUsers(page)
     const isWideVersion = useBreakpointValue({
         base: false,
         lg: true
@@ -65,7 +65,7 @@ export default function UserList() {
                                                 <Text fontSize='sm' color='gray.300'>{user.email}</Text>
                                             </Box>
                                         </Td>
-                                        {isWideVersion && <Td>{user.createAt}</Td>}
+                                        {isWideVersion && <Td>{user.created_at}</Td>}
                                         <Td>
                                             {isWideVersion &&
    
@@ -86,7 +86,11 @@ export default function UserList() {
                                    })}
                                 </Tbody>
                             </Table>
-                            <Pagination />
+                            <Pagination
+                            totalCountOfRegisters={200}
+                            currentPage={page}
+                            onPageChange={setPage}
+                            />
                         </>
                     )}
                 </Box>
